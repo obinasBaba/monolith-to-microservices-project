@@ -4,7 +4,7 @@ version: 2.1
 executors:
   docker-publisher:
     environment:
-      IMAGE_NAME: henzzodock/reverseproxy
+      IMAGE_NAME: henzzodock/reverseproxy:v0.1
     docker: # Each job requires specifying an executor
       # (either docker, macos, or machine), see
       - image: circleci/node:latest
@@ -30,10 +30,10 @@ jobs:
             echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             set COMPOSE_TLS_VERSION=TLSv1_2
             docker-compose build --no-cache
-            docker push henzzodock/reverseproxy
-            docker push henzzodock/udagram-api-user
-            docker push henzzodock/udagram-api-feed
-            docker push henzzodock/udagram-frontend
+            docker push henzzodock/reverseproxy:v0.1
+            docker push henzzodock/udagram-api-user:v0.1
+            docker push henzzodock/udagram-api-feed:v0.1
+            docker push henzzodock/udagram-frontend:v0.1
 
 
 
