@@ -16,7 +16,7 @@ spec:
         service: backend-user
     spec:
       containers:
-      - image: henzzodock/udagram-api-user
+      - image: henzzodock/udagram-api-user:v2
         name: backend-user
         imagePullPolicy: Always
         resources:
