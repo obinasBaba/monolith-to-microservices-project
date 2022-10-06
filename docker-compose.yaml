@@ -3,16 +3,16 @@ services:
   reverseproxy:
     build:
       context: ./udagram-reverseproxy
-    image: henzzo/reverseproxy:v1.0
+    image: henzzodock/reverseproxy:v1.0
   backend_user:
     build:
       context: ./udagram-api-user
-    image: henzzo/udagram-api-user:v1.0
+    image: henzzodock/udagram-api-user:v1.0
   backend_feed:
     build:
       context: ./udagram-api-feed
-    image: henzzo/udagram-api-feed:v1.0
+    image: henzzodock/udagram-api-feed:v1.0
   frontend:
     build:
       context: ./udagram-frontend
-    image: henzzo/udagram-frontend:v1.0
+    image: henzzodock/udagram-frontend:v1.0
