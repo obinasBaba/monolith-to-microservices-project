@@ -16,16 +16,16 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: henzzodock/reverseproxy:v2
+      - image: henzzodock/reverseproxy:v3
         name: reverseproxy
         imagePullPolicy: Always
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "1024Mi"
-            cpu: "500m"
+#        resources:
+#          requests:
+#            memory: "64Mi"
+#            cpu: "250m"
+#          limits:
+#            memory: "1024Mi"
+#            cpu: "500m"
         ports:
         - containerPort: 8080
       restartPolicy: Always

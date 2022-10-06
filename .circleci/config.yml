@@ -30,10 +30,10 @@ jobs:
             echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             set COMPOSE_TLS_VERSION=TLSv1_2
             docker-compose build --no-cache
-            docker push henzzodock/reverseproxy:v2
-            docker push henzzodock/udagram-api-user:v2
-            docker push henzzodock/udagram-api-feed:v2
-            docker push henzzodock/udagram-frontend:v2
+            docker push henzzodock/reverseproxy:v3
+            docker push henzzodock/udagram-api-user:v3
+            docker push henzzodock/udagram-api-feed:v3
+            docker push henzzodock/udagram-frontend:v3
 
 
 
