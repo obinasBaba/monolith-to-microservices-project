@@ -16,7 +16,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: henzzodock/reverseproxy:v3
+      - image: henzzodock/reverseproxy:v4
         name: reverseproxy
         imagePullPolicy: Always
 #        resources:
