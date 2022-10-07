@@ -6,7 +6,7 @@ import {IndexRouter} from './controllers/v0/index.router';
 
 import bodyParser from 'body-parser';
 import {config} from './config/config';
-import {V0_USER_MODELS} from './controllers/v0/model.index';
+import { V0_USER_MODELS} from './controllers/v0/model.index';
 
 
 (async () => {
@@ -14,25 +14,40 @@ import {V0_USER_MODELS} from './controllers/v0/model.index';
 
   console.debug("Initialize database connection...");
   await sequelize.sync();
-
+  console.log("request")
+  const allowedOrigins = [
+    'capacitor://localhost',
+    'ionic://localhost',
+    'http://localhost',
+    'http://localhost:8080',
+    'http://localhost:4200',
+    'http://localhost:8100',
+  ];
+  
+  // Reflect the origin if it's in the allowed list or not defined (cURL, Postman, etc.)
+  
+  console.log("re");
   const app = express();
-  const port = process.env.PORT || 8080;
-
   app.use(bodyParser.json());
+  app.use(cors({
+    origin: '*',
+  }));
+  const port = process.env.PORT || 8081;
+
 
   // We set the CORS origin to * so that we don't need to
   // worry about the complexities of CORS this lesson. It's
   // something that will be covered in the next course.
-  app.use(cors({
-    allowedHeaders: [
-      'Origin', 'X-Requested-With',
-      'Content-Type', 'Accept',
-      'X-Access-Token', 'Authorization',
-    ],
-    methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-    preflightContinue: true,
-    origin: '*',
-  }));
+  // app.use(cors({
+  //   allowedHeaders: [
+  //     'Origin', 'X-Requested-With',
+  //     'Content-Type', 'Accept',
+  //     'X-Access-Token', 'Authorization',
+  //   ],
+  //   methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+  //   preflightContinue: true,
+  //   origin: '*',
+  // }));
 
   app.use('/api/v0/', IndexRouter);
 
