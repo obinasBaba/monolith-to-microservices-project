@@ -17,16 +17,16 @@ spec:
         api: external
     spec:
       containers:
-      - image: henzzodock/udagram-frontend:v4
+      - image: henzzodock/udagram-frontend:v5
         name: frontend
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-#        resources:
-#          requests:
-#            memory: "64Mi"
-#            cpu: "250m"
-#          limits:
-#            memory: "1024Mi"
-#            cpu: "500m"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
       restartPolicy: Always
